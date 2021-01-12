@@ -365,7 +365,15 @@ export class WebRTCStats extends EventEmitter {
         event: 'onsignalingstatechange',
         tag: 'connection',
         peerId: id,
-        data: pc.signalingState
+        data: {
+          signalingState: pc.signalingState,
+          localDescription: pc.localDescription,
+          remoteDescription: pc.remoteDescription,
+          currentLocalDescription: pc.currentLocalDescription,
+          currentRemoteDescription: pc.currentRemoteDescription,
+          pendingLocalDescription: pc.pendingLocalDescription,
+          pendingRemoteDescription: pc.pendingRemoteDescription
+        }
       })
     })
     pc.addEventListener('iceconnectionstatechange', () => {
