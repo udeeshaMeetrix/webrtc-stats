@@ -85,7 +85,7 @@ export class WebRTCStats extends EventEmitter {
     return new Promise((resolve, reject) => {
       const {pc, peerId} = options
 
-      if (!pc || !(pc instanceof RTCPeerConnection)) {
+      if (!pc) {
         return reject(new Error(`Missing argument 'pc' or is not of instance RTCPeerConnection`))
       }
 
